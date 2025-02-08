@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta Information -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz App</title>
+
+  <!-- TailwindCSS Stylesheet -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="/static/css/style.css"> <!-- Custom CSS -->
+</head>
+<body
+  class="bg-gray-50 font-sans overflow-x-hidden"
+  style="background-image: url('/static/images/back.webp'); background-size: cover; background-repeat: no-repeat; background-attachment: fixed;"
+>
+
+  <!-- Header Section -->
+  <header class="bg-gradient-to-r from-slate-600 to-black text-white py-6 shadow-lg">
+    <div class="container mx-auto text-center">
+      <h1 class="text-3xl font-bold tracking-wide">Quiz App</h1> <!-- Title -->
+    </div>
+  </header>
+
+  <!-- User Input Section -->
+  <div id="user-input" class="text-center mt-12 px-4">
+    <!-- Label for Username -->
+    <label for="username" class="block text-xl font-semibold mb-4 text-gray-800">
+      Enter your name to start the quiz:
+    </label>
+    <!-- Username Input Field -->
+    <input
+      id="username"
+      type="text"
+      class="border border-black rounded-lg px-4 py-2 w-full max-w-sm mx-auto text-black focus:outline-none focus:ring-2 focus:ring-indigo-500"
+      placeholder="Your Name"
+    />
+    <!-- Submit Name Button -->
+    <button
+      id="submit-name"
+      class="bg-slate-900 hover:bg-slate-700 text-white font-semibold py-2 px-6 rounded-lg shadow-md mt-6 transition-transform duration-300 transform hover:scale-105"
+    >
+      Submit
+    </button>
+  </div>
+
+  <!-- Start Section -->
+  <div id="start-section" class="text-center hidden text-black px-4 mt-12">
+    <h2 class="text-3xl sm:text-4xl font-bold mb-8">Quiz Rules</h2>
+    <!-- List of Quiz Rules -->
+    <ul class="list-disc text-left max-w-lg mx-auto space-y-4 text-base sm:text-lg md:text-xl text-black">
+      <li>You will have <span class="font-bold">15 seconds</span> to answer each question.</li>
+      <li>Once you select an option, you cannot change your answer.</li>
+      <li>If you fail to answer within the given time, the quiz will automatically move to the next question.</li>
+      <li>Each correct answer awards you <span class="font-bold">1 point</span>.</li>
+      <li>Your final score will be displayed at the end of the quiz.</li>
+      <li>Enjoy the quiz and do your best!</li>
+    </ul>
+    <!-- Start Quiz Button -->
+    <button
+      id="start-button"
+      class="bg-slate-900 hover:bg-slate-700 text-white font-semibold py-3 px-8 rounded-lg shadow-md mt-8 transition-transform duration-300 transform hover:scale-105"
+    >
+      Start Quiz
+    </button>
+  </div>
+
+  <!-- Timer Display -->
+  <div id="timer" class="text-center text-gray-700 text-xl font-mono tracking-wide mx-4 mt-6"></div>
+
+  <!-- Loading Message -->
+  <div id="loading" class="hidden fixed inset-0 flex justify-center bg-gray-100 bg-opacity-90">
+    <div class="absolute bottom-32 inset-x-0 flex flex-col items-center">
+      <!-- Spinner for Loading -->
+      <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-indigo-500 border-solid border-gray-200"></div>
+      <span class="mt-4 text-gray-500 text-lg font-semibold">Loading quiz...</span>
+    </div>
+  </div>
+
+  <!-- Main Quiz Content -->
+  <main class="container mx-auto my-12 p-4">
+    <!-- Quiz Content Section -->
+    <div id="quiz-content" class="hidden">
+      <!-- Question Card -->
+      <div id="question-card" class="shadow-lg rounded-lg p-6 bg-white max-w-3xl mx-auto border-t-4 border-slate-500">
+        <h2 class="text-xl sm:text-2xl font-semibold mb-6 text-gray-800" id="question"></h2>
+        <!-- Options List -->
+        <ul id="options" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <!-- Options dynamically populated here -->
+        </ul>
+      </div>
+    </div>
+
+    <!-- Feedback Message -->
+    <div id="feedback" class="mt-6 px-4 text-center hidden">
+      <p class="text-base sm:text-lg md:text-xl text-gray-700 font-semibold"></p> <!-- Feedback text dynamically added -->
+    </div>
+
+    <!-- Restart Section -->
+    <div id="restart-section" class="hidden text-center mt-12">
+      <!-- Restart Button -->
+      <button
+        id="restart-button"
+        class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition-transform duration-300 transform hover:scale-105"
+      >
+        Restart Quiz
+      </button>
+    </div>
+  </main>
+
+  <!-- Badge Display Section -->
+  <div id="badge-display" class="hidden text-center mt-12">
+    <!-- Badge content dynamically added here -->
+  </div>
+
+  <!-- Main JavaScript -->
+  <script src="/static/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+/* Keyframes for animations */
+
+/* Fade-in animation for questions - makes the question appear smoothly by changing opacity and moving upward */
+@keyframes fadeInQuestion {
+    from {
+      opacity: 0; /* Completely invisible at the start */
+      transform: translateY(-20px); /* Slightly above its final position */
+    }
+    to {
+      opacity: 1; /* Fully visible */
+      transform: translateY(0); /* Final position */
+    }
+  }
+  
+  /* Slide-in animation for options - makes the options slide in from the left with increasing opacity */
+  @keyframes slideInOption {
+    from {
+      opacity: 0; /* Completely invisible at the start */
+      transform: translateX(-30px); /* Slightly off-screen to the left */
+    }
+    to {
+      opacity: 1; /* Fully visible */
+      transform: translateX(0); /* Final position */
+    }
+  }
+  
+  /* Bounce animation for feedback - creates a bounce effect by scaling the element */
+  @keyframes feedbackBounce {
+    0%, 100% {
+      transform: scale(1); /* Normal size at the start and end */
+    }
+    50% {
+      transform: scale(1.2); /* Enlarged at the midpoint */
+    }
+  }
+  
+  /* Apply animations to specific elements */
+  
+  /* Animation for the question text - fades in with a smooth upward motion */
+  #question {
+    animation: fadeInQuestion 0.5s ease-out; /* Uses the fadeInQuestion keyframe over 0.5 seconds */
+  }
+  
+  /* Animation for options - slides in from the left with opacity change */
+  .option {
+    opacity: 0; /* Initially invisible */
+    animation: slideInOption 0.5s ease-out forwards; /* Uses the slideInOption keyframe over 0.5 seconds */
+  }
+  
+  /* Feedback bounce effect - scales the feedback element to create a bounce effect */
+  #feedback {
+    animation: feedbackBounce 0.5s ease-out; /* Uses the feedbackBounce keyframe over 0.5 seconds */
+    font-size: 1.2rem; /* Slightly larger font size */
+    font-weight: bold; /* Makes the feedback text bold */
+    text-align: center; /* Centers the feedback text */
+    margin-top: 20px; /* Adds spacing above the feedback */
+  }
+  
+  /* Reusable bounce animation class for feedback - triggered when the element has this class */
+  #feedback.animate-feedback {
+    animation: feedbackBounce 0.5s ease-out; /* Reuses the feedbackBounce keyframe for bounce effect */
+  }
+  
